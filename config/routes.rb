@@ -1,4 +1,6 @@
 CityStop::Application.routes.draw do
+  get "map", :to => 'map#index'
+  root :to => 'map#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
