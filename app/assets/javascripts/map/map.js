@@ -1,11 +1,9 @@
-window.onload = function init() {
-	map = new OpenLayers.Map("basicMap");
-	var mapnik         = new OpenLayers.Layer.OSM();
-	var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-	var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-	var position       = new OpenLayers.LonLat(30.27,59.93).transform( fromProjection, toProjection);
-	var zoom           = 10; 
-
-	map.addLayer(mapnik);
-	map.setCenter(position, zoom); }
-
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+var map = L.map('map').setView([59.94, 30.30], 11);
+    L.tileLayer('http://{s}.tile.cloudmade.com/27811c2dd4ab4a1d9bc5a8ebe17a82a6/997/256/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        maxZoom: 18
+    }).addTo(map);
