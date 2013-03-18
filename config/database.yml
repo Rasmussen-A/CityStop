@@ -27,18 +27,19 @@ test:
   encoding: utf8
   reconnect: false
   database: identt
+  host: sql09.freemysql.net
   pool: 5
-  username: dev
+  username: rasmussen
   password: nbvIp5dks2
   socket: /var/run/mysqld/mysqld.sock
 
-#production:
-#  adapter: mysql2
-#  encoding: utf8
-#  reconnect: false
-#  database: ident_production
-#  pool: 5
-#  username: dev
-#  password: nbvIp5dks2
-#  socket: /var/run/mysqld/mysqld.sock
-
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ident
+  host: sql09.freemysql.net
+  pool: 5
+  username: rasmussen
+  password: nbvIp5dks2
+  socket: /var/run/mysqld/mysqld.sock

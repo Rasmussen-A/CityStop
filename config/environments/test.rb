@@ -34,4 +34,7 @@ CityStop::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  #Css trees
+  config.assets.precompile += %w( application-all.css application-ie.css )
 end
