@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-CityStop::Application.config.secret_token = 'c638bdd4c65f1872c7e8378f02ab3e06991674d3d1f7c54c713d69abe4f33b121733c9f45125470fd692cb9bd569f6efde665632508e9ab134c116bc9a54babe'
+CityStop::Application.config.secret_token = '1effdaece12bc5d49ae5de78121b62c268cfc02811a6ed6462a0afeffb440da4ea6403f635b09c6a1eca5c87c194c237380feeed6a5beec5842857164e9e2b75'

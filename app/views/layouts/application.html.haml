@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+%html{:lang => "ru"}
+%head
+  %meta{:'http-equiv' => "Content-Type", :content => "text/html", :charset => "utf-8"}
+  %title CityStop
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  = stylesheet_link_tag    "application-all", :media => "all"
+  <!--[if lte IE 8]>
+  = stylesheet_link_tag    "application-ie", :media => "all"
+  <![endif]-->
+  = javascript_include_tag "application" 
+  = csrf_meta_tags
+%body
+  %div{:id => "canvas", :class => "container-fluid"}
+    %div{:id => "header", :class => "row-fluid underlined"}
+      %div{:class => "span12"}
+        %div{:class => "row-fluid head"}
+          %a{:style => "display: block;", :href => "/"}
+          %div{:id => "logotype", :class => "head"}
+= yield

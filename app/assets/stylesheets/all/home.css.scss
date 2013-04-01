@@ -1,3 +1,41 @@
-// Place all the styles related to the Home controller here.
+// Place all the styles related to the map controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body, html, #canvas { min-height: 100%; height: 100%; padding: 0; }
+.bordered { border: 1px solid black; }
+.underlined { border-bottom: 1px solid gray; }
+.right-lined { border-right: 1px solid gray; }
+.side-lined { 
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray; }
+.head { height: 50px; }
+#header { background-color: #1d6f9b; }
+#logotype { background-image: url('/assets/citystop.png'); 
+        background-repeat: no-repeat;
+        float: left;
+        width: 205px;}
+#baseContainerFluid { position: absolute; top: 0px; bottom: 0px; }
+#filled { position: absolute; top: 50px; bottom: 0px; }
+#map { height: 100%; width: 100%; margin: 0; }
+#filtersContainerFluid { position: absolute; 
+        background-color: #F5F5F5; 
+        padding: 5px; 
+        text-align: center; 
+        float: right; 
+        bottom: 0; 
+        right: 0; 
+        top: 0; } 
+/* *********************************************************** */
+/* Specifing responsive-design rules */
+@media (max-width:768px) {
+    #baseContainerFluid { position: absolute; top: 0px; bottom: 40%; }
+    #filterContainerFluid { position: absolute; 
+        background-color: #F5F5F5; 
+        padding: 5px; 
+        text-align: center; 
+        top: 60%;
+        bottom: 0px; }
+    .side-lined {
+        border-bottom: 1px solid gray;}
+    .right-lined { border-right: none; } }

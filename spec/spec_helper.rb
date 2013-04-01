@@ -5,16 +5,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 
-# Clean up the database
-require 'database_cleaner'
-config.before(:suite) do
-  DatabaseCleaner.strategy = :truncation
-  DatabaseCleaner.orm = "mysql2"
-end
-config.before(:each) do
-  DatabaseCleaner.clean
-end
-
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
