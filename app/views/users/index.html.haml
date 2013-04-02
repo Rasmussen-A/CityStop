@@ -1,21 +1,30 @@
-%h1 Listing users
+-# User#index
+-# map and filets fluid row
+#filled.row-fluid
+ #baseContainerFluid.span9.side-lined
+  #map
 
-%table
-  %tr
-    %th Name
-    %th Password digest
-    %th
-    %th
-    %th
+   Listing users
 
-  - @users.each do |user|
+   %table
     %tr
-      %td= user.name
-      %td= user.password_digest
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+     %th Name
+     %th Password digest
+     %th
+     %th
+     %th
 
-%br
+   - @users.each do |user|
+    %tr
+     %td= user.name
+     %td= user.password_digest
+     %td= link_to 'Show', user
+     %td= link_to 'Edit', edit_user_path(user)
+     %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New User', new_user_path
+   %br
+
+   = link_to 'New User', new_user_path
+
+ #filtersContainerFluid.span3.right-lined
+  Бла-бла.
