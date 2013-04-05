@@ -1,9 +1,8 @@
 -# Home#index
--# map and filets fluid row
-#filled.row-fluid
- #baseContainerFluid.span9.side-lined
-  #map
-   Бла-бла.
-   %a{:href => "/"} Перейти к карте.
- #filtersContainerFluid.span3.right-lined
-  Бла-бла.
+
+- content_for :content do
+ %h1 Yay!
+ %a{ href: "/" } A link!
+
+- content_for :bar do
+ Okay, I am a bar, see?

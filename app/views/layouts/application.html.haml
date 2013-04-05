@@ -5,17 +5,34 @@
   %meta{:'http-equiv' => "Content-Type", :content => "text/html", :charset => "utf-8"}
   %title CityStop
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
   = stylesheet_link_tag    "application-all", :media => "all"
   /[if lte IE 8]
    = stylesheet_link_tag    "application-ie", :media => "all"
+
   = javascript_include_tag "application"
   = csrf_meta_tags
 
-  %body
-   #canvas.container-fluid
-    #header.row-fluid.underlined
-     .span12
-      .row-fluid.head
-       = link_to(@home) do
-        %span#logotype.head
-   = yield
+ %body
+
+  .container-fluid
+
+   -# head bar
+   .row-fluid.head
+    -# logo span
+    .span1.head
+     = link_to(@home) do
+      %span.span1#logo
+
+    .span11.head
+    -# temporary part, there will placed a indicators and login/reg
+      i suppose to use ajax and stuff instead of rails yield here
+
+  -# Set two-column template
+  .row-fluid#canvas
+
+   .span9.fill#sideline
+    = yield :content
+
+   .span3.fill#bar
+    = yield :bar
