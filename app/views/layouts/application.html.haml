@@ -14,16 +14,23 @@
   = csrf_meta_tags
 
  %body
+  -# container for whole page
   .container-fluid
 
-   -# head bar
+   -# head bar row
    .row-fluid.head
     -# logo span
     .span1.head
-     = link_to(@home) do
+     = link_to root_path do
       %span.span1#logo
+    .span2.head
+     - if user_signed_in?
+      %p= current_user.name
+      = link_to "Выйти", destroy_user_session_path, method: :delete
+     -else
+      = link_to "Войти", new_user_session_path
 
-  -# Set two-column template
+  -# two-columns template
   .row-fluid#canvas
 
    .span9.fill#content

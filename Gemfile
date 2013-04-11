@@ -10,6 +10,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'rails-backbone'
+gem 'i18n'
+gem 'rails-i18n'
 
 # Gems used only for assets and not required
 # in production environments by default.

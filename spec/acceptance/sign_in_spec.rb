@@ -1,4 +1,3 @@
-#coding: utf-8
 require 'spec_helper'
 
 feature 'Sign in', %q{ As an admin I want to sign in } do
@@ -8,22 +7,21 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
   end
 
   scenario "Clicking Sign In" do
-    page.source.should have_selector("title", text: "CityStop | Вход")
+    page.source.should have_selector("title",
+      text: "CityStop | #{I18n.t :sign_in_title}")
     page.source.should have_selector('form')
   end
 
   scenario "Successful Sign In" do
     FactoryGirl.create(:user)
-    fill_in 'Email', with: 'name@domain.org'
-    fill_in 'Password', with: 'password'
-    click_on 'Sign In'
+    login_user(:user)
     current_path.should == user_root_path
   end
 
   scenario "Unsuccessful Sign In" do
-    fill_in 'Email', with: 'pwned@an.on'
-    fill_in 'Password', with: '@ll$'
-    click_on 'Sign In'
+    fill_in I18n.t(:email_field), with: 'pwned@an.on'
+    fill_in I18n.t(:pass_field), with: '@ll$'
+    click_button I18n.t(:sign_in_action)
     current_path.should == user_session_path
     page.should have_content('Invalid email or password')
   end

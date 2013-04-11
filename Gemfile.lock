@@ -139,6 +139,8 @@ GEM
       coffee-script (~> 2.2.0)
       ejs (~> 1.0.0)
       railties (>= 3.1.0)
+    rails-i18n (0.7.3)
+      i18n (~> 0.5)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -212,11 +214,13 @@ DEPENDENCIES
   haml
   haml-coffee
   haml-rails
+  i18n
   jasmine
   jquery-rails
   pg
   rails (= 3.2.13)
   rails-backbone
+  rails-i18n
   rspec-rails
   sass-rails (~> 3.2.3)
   spork

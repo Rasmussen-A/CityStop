@@ -4,9 +4,9 @@ require "factory_girl"
 FactoryGirl.define do
 
   factory :user do
-    name 'Testing'
-    email 'name@domain.org'
-    password 'password'
+    name I18n.t(:factory_username)
+    email 'bob@hula.hoop'
+    password 'p@ssword'
   end
 
 end

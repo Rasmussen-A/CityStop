@@ -1,4 +1,3 @@
-# coding: utf-8
 require 'spec_helper'
 
 feature 'Home page', %q{ As an unregistred user I want to see home page } do
@@ -9,11 +8,11 @@ feature 'Home page', %q{ As an unregistred user I want to see home page } do
 
   scenario "Home page" do
     visit "/"
-    page.should have_link('Войти')
-    page.should have_link('Зарегестрироваться')
-    page.source.should have_selector("title", text: "CityStop | Главная")
-    page.should have_content('Где это я?')
+    page.should have_link(I18n.t :sign_in_action)
+    page.should have_link(I18n.t :sign_up_action)
+    page.source.should have_selector("title",
+      text: "CityStop | #{I18n.t :main_title}")
+    page.should have_content(I18n.t :where_am_i)
   end
 
 end # feature 'Home page'
-
