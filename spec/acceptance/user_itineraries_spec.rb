@@ -31,9 +31,10 @@ feature 'Signed in user', %q{
   end
 
   scenario 'User is signed in' do
-    visit user_root_path
+    visit itineraries_path
     page.should have_content(@bob.name)
     page.should have_content(@bob_way.name)
+    page.should have_content(I18n.t(:sign_out_title))
   end
 
 end # feature Signed in user

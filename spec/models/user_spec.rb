@@ -17,13 +17,15 @@ describe User do
       @bob.save
       john = FactoryGirl.build(:user, email: 'lol@wut.ru')
       john.valid?.should be_false
-      john.errors[:name].should include("has already been taken")
+      john.errors[:name].should include(
+        I18n.t 'errors.messages.taken')
     end
 
     it "should be required" do
       @bob.name = nil
       @bob.valid?.should be_false
-      @bob.errors[:name].should include("can't be blank")
+      @bob.errors[:name].should include(
+        I18n.t 'errors.messages.blank')
     end
 
   end # describe name

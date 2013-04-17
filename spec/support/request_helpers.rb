@@ -3,7 +3,7 @@ module RequestHelpers
   module Helpers
 
     def click_sign_in
-      visit "/"
+      visit root_path
       click_link I18n.t :sign_in_action
     end
 
@@ -16,10 +16,9 @@ module RequestHelpers
 
   end # module Helpers
 
+  RSpec.configure do |config|
+    config.include RequestHelpers::Helpers, type: :acceptance, example_group: {
+      file_path: config.escaped_path(%w[spec acceptance])}
+  end
+
 end # module RequestHelpers
-
-RSpec.configure do |config|
-  config.include RequestHelpers::Helpers, type: :acceptance, example_group: {
-    file_path: config.escaped_path(%w[spec acceptance])}
-
-end

@@ -29,6 +29,7 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'jasmine'

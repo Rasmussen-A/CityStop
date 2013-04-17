@@ -53,6 +53,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -69,12 +70,12 @@ RSpec.configure do |config|
   config.mock_with :rspec
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -87,7 +88,24 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  Spork.each_run do
-	  # This code will be run each time you run your specs.
-	end
+  require 'database_cleaner'
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
+
 end
+
+Spork.each_run do
+ # # This code will be run each time you run your specs.
+  Dir[Rails.root.join("spec/factories.rb")].each{|f| load f}
+
+  # Reload routes
+  CityStop::Application.reload_routes!
+end
+
+
