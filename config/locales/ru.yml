@@ -1,0 +1,35 @@
+ru:
+# FactoryGirl section
+  factory_username: Ушатый пепелац
+  factory_itinerary_name: В бесконечность и далее!
+  factory_itinerary_description: Маленький безумный трип
+  other_description: Большой безумный трип
+
+# Devise defines
+  username: Имя
+  login_field: Ник или email
+  pass_field: Пароль
+  pass_confirm: Повторите пароль
+  sign_in_action: Войти
+  sign_up_action: Зарегестрироваться
+
+# Itineraries fields
+  itinerary_name_field: Маршрут
+  itinerary_time_field: Время
+  itinerary_description_field: Описание
+  save: Сохранить
+  my_itineraries: Мои маршруты
+  update: Обновить
+  details: Подробнее
+
+# Page sources
+  sign_in_title: Вход
+  sign_out_title: Выйти
+  main_title: Главная
+  where_am_i: Где это я
+
+# Std definitions
+  helpers:
+    submit:
+      create: Сохранить
+      update: Обновить

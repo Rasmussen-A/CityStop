@@ -1,0 +1,27 @@
+-# itineraries#index
+
+- title "Маршруты"
+
+- content_for :content do
+ %p Place a map here
+
+- content_for :bar do
+ = form_for @itinerary || Itinerary.new do |f|
+  = f.label :name, I18n.t(:itinerary_name_field)
+  = f.text_field :name
+  = f.label :time, I18n.t(:itinerary_time_field)
+  = f.text_field :time
+  = f.label :description, I18n.t(:itinerary_description_field)
+  = f.text_field :description
+  = f.submit
+
+ %ul
+  - for itinerary in @itineraries do
+   %li{class: @itinerary == itinerary ? :selected : nil}
+    %span.del_form
+     = button_to "X", itinerary, confirm: 'Удалить?', method: :delete
+    %span.itinerary_name
+     = link_to itinerary.name, edit_itinerary_path(itinerary)
+    %span.itinerary_details
+     = link_to "Подробнее", itinerary_path(itinerary)
+    %span.itinerary_description= itinerary.description
