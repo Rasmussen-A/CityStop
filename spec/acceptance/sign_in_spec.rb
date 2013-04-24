@@ -24,12 +24,12 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
   scenario "Unsuccessful Sign In" do
     # Trying to sign in a God, I mean non-existing user, lol
     # Should roll back to login page
-    fill_in I18n.t(:email_field), with: 'pwned@an.on'
+    fill_in I18n.t(:login_field), with: 'pwned@an.on'
     fill_in I18n.t(:pass_field), with: '@ll$'
     click_button I18n.t(:sign_in_action)
     current_path.should == user_session_path
     page.should have_content(
-      I18n.t 'devise.failure.user.not_found_in_database')
+      I18n.t 'devise.failure.invalid')
   end
 
 end # feature 'Sign in'

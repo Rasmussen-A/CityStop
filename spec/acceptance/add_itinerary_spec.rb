@@ -13,6 +13,8 @@ feature 'Add itineraries', %q{
     # Filling in itinerary data and saving it
     fill_in I18n.t(:itinerary_name_field),
       with: I18n.t(:factory_itinerary_name)
+    fill_in I18n.t(:itinerary_time_field),
+      with: Time.now.to_s
     fill_in I18n.t(:itinerary_description_field),
       with: I18n.t(:other_description)
     click_button I18n.t(:save)

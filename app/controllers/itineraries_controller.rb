@@ -1,4 +1,6 @@
 class ItinerariesController < ApplicationController
+  # User shall be signed in
+  # to access any of itineraries actions
   before_filter :authenticate_user!
 
   def index
@@ -33,6 +35,11 @@ class ItinerariesController < ApplicationController
     itinerary = current_user.itineraries.find(params[:id])
     itinerary.destroy
     redirect_to itineraries_path
+  end
+
+  def show
+    # Same as a index page, but another view
+    @itinerary = current_user.itineraries.find(params[:id])
   end
 
 end

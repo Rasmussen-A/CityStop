@@ -7,9 +7,9 @@
 
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %div
-      = f.label :email, I18n.t(:email_field)
+      = f.label :login, I18n.t(:login_field)
       %br/
-      = f.email_field :email, :autofocus => true
+      = f.text_field :login, :autofocus => true
     %div
       = f.label :password, I18n.t(:pass_field)
       %br/

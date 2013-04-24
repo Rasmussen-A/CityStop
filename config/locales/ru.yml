@@ -6,17 +6,21 @@ ru:
   other_description: Большой безумный трип
 
 # Devise defines
-  email_field: Почтовый ящик
+  username: Имя
+  login_field: Ник или email
   pass_field: Пароль
+  pass_confirm: Повторите пароль
   sign_in_action: Войти
   sign_up_action: Зарегестрироваться
 
 # Itineraries fields
   itinerary_name_field: Маршрут
+  itinerary_time_field: Время
   itinerary_description_field: Описание
   save: Сохранить
   my_itineraries: Мои маршруты
   update: Обновить
+  details: Подробнее
 
 # Page sources
   sign_in_title: Вход
@@ -29,9 +33,3 @@ ru:
     submit:
       create: Сохранить
       update: Обновить
-
-# Error messages
-  devise:
-    failure:
-      user:
-        not_found_in_database: Неверное имя пользователя или пароль
