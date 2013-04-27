@@ -3,9 +3,11 @@ class CreateItineraries < ActiveRecord::Migration
     create_table :itineraries do |t|
       t.string :name
       t.string :description
-      t.string :type
+      t.string :kind
       t.datetime :time
       t.references :user
+      # Non-native AR type, t.column :name, :type
+      t.column :route, :path
 
       t.timestamps
     end

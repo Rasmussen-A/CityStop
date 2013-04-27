@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(:version => 20130409140715) do
   create_table "itineraries", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "type"
+    t.string   "kind"
     t.datetime "time"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "route",       :limit => nil
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "itineraries", ["user_id"], :name => "index_itineraries_on_user_id"
