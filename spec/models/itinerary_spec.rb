@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Itinerary do
 
   before(:each) do
-    @route = FactoryGirl.build(:itinerary)
+    @route = FactoryGirl.create(:itinerary)
   end
 
     describe 'initerary info' do
