@@ -9,10 +9,10 @@ describe("MapView", function() {
       // Preparing, for map provider see asserts/js/lib/leafletMapProvider
       var mp = new App.MapProviders.Leaflet();
       var mapSpy = this.stub(mp, "setViewForMap");
-      var setViewSpy = this.stub(mp, "setViewForMap")
+      var setViewSpy = this.stub(mp, "setViewForMap");
       // Act
       var view = new App.MapView({
-        mapProvider: mp;
+        mapProvider: mp
       });
       // Assert
       expect(view.el.id).toEqual("map");

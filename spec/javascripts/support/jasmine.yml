@@ -11,12 +11,13 @@
 #   - dist/**/*.js
 #
 src_files:
-  #  - spec/javascripts/helpers/jquery.js
+  - spec/javascripts/helpers/jquery.js
   - spec/javascripts/helpers/jasmine-sinon.js
   - spec/javascripts/helpers/sinon-1.6.0.js
   - vendor/assets/javascripts/backbone/underscore-min.js
   - vendor/assets/javascripts/backbone/backbone-min.js
   - vendor/assets/javascripts/leaflet/leaflet.js
+  - app/assets/**/util.js.coffee
   - app/assets/**/*.coffee
 
 # stylesheets
