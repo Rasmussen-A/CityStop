@@ -1,6 +1,6 @@
-App = {}
+App or (App = {})
 
-App.MapProviders = {}
+App.MapProviders or (App.MapProviders = {})
 
 App.MapProviders.Leaflet = ->
   # Creating new map

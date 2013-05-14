@@ -1,6 +1,8 @@
 # models#itinerary
 class Itinerary < ActiveRecord::Base
 
+  serialize :route, JSON
+
   belongs_to :user
   # Attributes that user can access
   attr_accessible :description, :name, :time
