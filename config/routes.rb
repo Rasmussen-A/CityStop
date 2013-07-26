@@ -5,6 +5,6 @@ CityStop::Application.routes.draw do
   resources :itineraries
 
   root :to => "home#index"
-  match 'itineraries' => 'itineraries#index', as: :user_root
+  match 'itineraries' => 'itineraries#index', as: :user_root, via: :get
 
-  end
+end

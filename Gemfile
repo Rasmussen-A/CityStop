@@ -1,47 +1,36 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'haml'
-gem 'haml-rails'
-gem 'devise'
-gem 'rails-backbone'
+gem 'devise', '~> 3.0.0'
+gem 'backbone-rails', '~> 1.0.0'
 gem 'i18n'
 gem 'rails-i18n'
+gem 'protected_attributes'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'haml-coffee'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
-gem 'jquery-rails'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'haml-coffee'
+gem 'haml', '~> 4.0.3'
+gem 'haml-rails', '~> 0.4'
+gem 'jquery-rails', '~> 3.0.4'
+gem 'jquery-ui-rails', '~> 4.0.3'
+gem 'uglifier', '>= 1.0.3'
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'jasmine'
-  gem 'jasminerice'
+  gem 'factory_girl_rails', '~> 4.2.1'
   gem 'spork'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'foreman'
 end
-
-gem 'debugger-xml'
-gem 'debugger'
 
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
