@@ -19,7 +19,7 @@
   - for itinerary in @itineraries do
    %li{class: @itinerary == itinerary ? :selected : nil}
     %span.del_form
-     = button_to "X", itinerary, confirm: 'Удалить?', method: :delete
+     = button_to "X", itinerary, data: {confirm: 'Удалить?'}, method: :delete
     %span.itinerary_name
      = link_to itinerary.name, edit_itinerary_path(itinerary)
     %span.itinerary_details

@@ -1,6 +1,9 @@
-Wed, 13 Mar 2013 15:09:25 +0400
-doc/README_FOR_APP	Tue, 19 Feb 2013 22:43:37 +0400
-app/controllers/map_controller.rb	Wed, 13 Mar 2013 14:56:47 +0400
-app/controllers/application_controller.rb	Tue, 19 Feb 2013 22:43:37 +0400
-app/helpers/map_helper.rb	Wed, 13 Mar 2013 14:56:09 +0400
-app/helpers/application_helper.rb	Tue, 19 Feb 2013 22:43:37 +0400
+Tue, 02 Apr 2013 15:21:18 +0400
+doc/README_FOR_APP	Mon, 01 Apr 2013 23:16:20 +0400
+app/controllers/home_controller.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/controllers/application_controller.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/controllers/users_controller.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/models/user.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/helpers/application_helper.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/helpers/home_helper.rb	Mon, 01 Apr 2013 23:16:20 +0400
+app/helpers/users_helper.rb	Mon, 01 Apr 2013 23:16:20 +0400

@@ -1,0 +1,43 @@
+!!! 5
+%html{:lang => "ru"}
+ %head
+
+  %meta{:'http-equiv' => "Content-Type", :content => "text/html", :charset => "utf-8"}
+  %title= "CityStop | #{content_for(:title)}"
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
+  = stylesheet_link_tag    "application-all", :media => "all"
+  /[if lte IE 8]
+   = stylesheet_link_tag    "application-ie", :media => "all"
+
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+ %body
+  -# container for whole page
+  .container-fluid
+
+   -# head bar row
+   .row-fluid.head
+    -# logo span
+    .span1.head
+     = link_to root_path do
+      %span.span1#logo
+    .span2.head
+     - if user_signed_in?
+      %p= current_user.name
+      %p= link_to "Мои маршруты", user_root_path
+      = link_to "Выйти", destroy_user_session_path, method: :delete
+     -else
+      = link_to "Войти", new_user_session_path
+
+  -# two-columns template
+  .row-fluid#canvas
+
+   .span9.fill#content
+    %p.notice= notice
+    %p.alert= alert
+    = yield :content
+
+   .span3.fill#bar
+    = yield :bar
