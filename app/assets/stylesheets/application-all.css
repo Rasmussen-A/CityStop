@@ -12,5 +12,6 @@
  * application-all.css
  *
  *= require_self
+ *= require vendor-all
  *= require_tree ./all
  */

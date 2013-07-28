@@ -4,7 +4,6 @@
 
   %meta{:'http-equiv' => "Content-Type", :content => "text/html", :charset => "utf-8"}
   %title= "CityStop | #{content_for(:title)}"
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
 
   = stylesheet_link_tag    "application-all", :media => "all"
   /[if lte IE 8]
@@ -14,30 +13,33 @@
   = csrf_meta_tags
 
  %body
-  -# container for whole page
+
+  .navbar.navbar-fixed-top
+   .navbar-inner
+    .container-fluid
+     %a.brand{ href: root_path } CityStop
+
+     %ul#head-nav.nav
+      %li#common-map.active
+       %a{ href: "#!/map" } Карта
+      %li#itineraries
+       %a{ href: "#!/itineraries" } Мои маршруты
+
+     %p.navbar-text.pull-right
+      -if user_signed_in?
+       %p= current_user.name
+       = link_to "Выйти", destroy_user_session_path, method: :delete
+      -else
+       = link_to "Войти", new_user_session_path
+
   .container-fluid
+   #wrapper.row-fluid
+    #map-wrapper.well.span7
+     #searchbox
+     #map
+      = yield :content
 
-   -# head bar row
-   .row-fluid.head
-    -# logo span
-    .span1.head
-     = link_to root_path do
-      %span.span1#logo
-    .span2.head
-     - if user_signed_in?
-      %p= current_user.name
-      %p= link_to "Мои маршруты", user_root_path
-      = link_to "Выйти", destroy_user_session_path, method: :delete
-     -else
-      = link_to "Войти", new_user_session_path
-
-  -# two-columns template
-  .row-fluid#canvas
-
-   .span9.fill#content
-    %p.notice= notice
-    %p.alert= alert
-    = yield :content
-
-   .span3.fill#bar
-    = yield :bar
+    #filters.well.span5
+     %p.notice= notice
+     %p.alert= alert
+     = yield :bar
