@@ -1,12 +1,10 @@
 -# Home#index
-= title('Главная')
+=title('Главная')
 
-- content_for :content do
+-content_for :content do
  %h1 Где это я?
- = link_to( "Зарегестрироваться!", new_user_registration_path )
+ =link_to( "Зарегестрироваться!", new_user_registration_path )
 
-- content_for :bar do
+-content_for :bar do
  %p
-  Okay, I am a bar, see?
- %p
-  There is no spoon.
+  Сайдбар!

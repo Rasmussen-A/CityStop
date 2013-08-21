@@ -1,13 +1,12 @@
 ru:
 # FactoryGirl section
-  factory_username: Ушатый пепелац
-  factory_itinerary_name: В бесконечность и далее!
-  factory_itinerary_description: Маленький безумный трип
-  other_description: Большой безумный трип
+  factory_username: Васисуалий
+  factory_itinerary_name: Стрельна-Петергоф
+  factory_itinerary_description: Желательно вписываться в Стрельне
+  other_description: Петергоф-Стрельна
 
 # Devise defines
-  username: Имя
-  login_field: Ник или email
+  username: Логин
   pass_field: Пароль
   pass_confirm: Повторите пароль
   sign_in_action: Войти

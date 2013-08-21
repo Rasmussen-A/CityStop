@@ -8,8 +8,7 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
   end
 
   scenario "Clicking Sign In" do
-    page.source.should have_selector("title",
-      text: "CityStop | #{I18n.t :sign_in_title}")
+    page.should have_title("CityStop | #{I18n.t :sign_in_title}")
     page.source.should have_selector('form')
   end
 
@@ -23,8 +22,8 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
 
   scenario "Unsuccessful Sign In" do
     # Trying to sign in a God, I mean non-existing user, lol
-    # Should roll back to login page
-    fill_in I18n.t(:login_field), with: 'pwned@an.on'
+    # Should drop to login page
+    fill_in 'Email', with: 'pwned@an.on'
     fill_in I18n.t(:pass_field), with: '@ll$'
     click_button I18n.t(:sign_in_action)
     current_path.should == user_session_path

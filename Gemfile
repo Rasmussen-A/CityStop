@@ -7,8 +7,8 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'devise', '~> 3.0.0'
+gem 'devise-i18n'
 gem 'backbone-rails', '~> 1.0.0'
-gem 'i18n'
 gem 'rails-i18n'
 gem 'protected_attributes'
 
@@ -26,10 +26,11 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.2.1'
-  gem 'spork'
+  gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'foreman'
+  gem 'selenium-webdriver'
 end
 
 # To use ActiveModel has_secure_password
