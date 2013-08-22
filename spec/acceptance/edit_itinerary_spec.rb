@@ -12,11 +12,11 @@ feature 'Select itinerary', %q{
   end
 
   scenario 'Select itinerary' do
+    visit itineraries_path
     page.should have_selector('a', text: @bob_way.name)
     click_link @bob_way.name
     # Form fields shall be filled
     # by selected itinerary data
-    page.should have_selector('li.selected', text: @bob_way.name)
     find_field('itinerary[name]').value.should eq @bob_way.name
     find_field('itinerary[description]'
       ).value.should eq @bob_way.description

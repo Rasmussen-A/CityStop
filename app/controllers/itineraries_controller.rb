@@ -20,7 +20,6 @@ class ItinerariesController < ApplicationController
     # Load all user itineraries, then searching by id
     @itineraries = current_user.itineraries
     @itinerary = @itineraries.find(params[:id])
-    render 'index'
   end
 
   def update
@@ -38,7 +37,6 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    # Same as a index page, but another view
     @itinerary = current_user.itineraries.find(params[:id])
   end
 

@@ -28,7 +28,7 @@
 
      %p.navbar-text.pull-right
       -if user_signed_in?
-       =current_user.name
+       =current_user.name + ' / '
        =link_to "Выйти", destroy_user_session_path, method: :delete
       -else
        =link_to "Войти", new_user_session_path

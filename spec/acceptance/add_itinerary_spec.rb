@@ -10,6 +10,7 @@ feature 'Add itineraries', %q{
   end
 
   scenario 'Add basic itinerary' do
+    visit(new_itinerary_path)
     # Filling in itinerary data and saving it
     fill_in I18n.t(:itinerary_name_field),
       with: I18n.t(:factory_itinerary_name)

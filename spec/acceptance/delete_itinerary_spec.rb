@@ -26,9 +26,9 @@ feature 'Delete itinerary', %q{
     # form.should have_selector("input[value='delete']")
     # Autoconfirm dialog
     # That is why I use selenium driver
-    page.execute_script(
-      'window.confirm = function() {return true;}')
     click_button 'X'
+      page.driver.browser.switch_to.alert.accept
+    current_path.should == itineraries_path
     page.should_not have_content('Zombie itinerary')
   end
 

@@ -6,18 +6,11 @@
  %p Place a map here
 
 - content_for :bar do
- = form_for @itinerary || Itinerary.new do |f|
-  = f.label :name, I18n.t(:itinerary_name_field)
-  = f.text_field :name
-  = f.label :time, I18n.t(:itinerary_time_field)
-  = f.text_field :time
-  = f.label :description, I18n.t(:itinerary_description_field)
-  = f.text_field :description
-  = f.submit
+ = link_to "Создать маршрут", new_itinerary_path, class: 'btn'
 
  %ul
   - for itinerary in @itineraries do
-   %li{class: @itinerary == itinerary ? :selected : nil}
+   %li
     %span.del_form
      = button_to "X", itinerary, data: {confirm: 'Удалить?'}, method: :delete
     %span.itinerary_name

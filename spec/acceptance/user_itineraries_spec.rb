@@ -32,6 +32,7 @@ feature 'Signed in user', %q{
 
   scenario 'User is signed in' do
     visit itineraries_path
+    page.should have_link(I18n.t(:create), href: new_itinerary_path)
     page.should have_content(@bob.name)
     page.should have_content(@bob_way.name)
     page.should have_content(I18n.t(:sign_out_title))
