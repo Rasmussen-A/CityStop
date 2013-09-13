@@ -5,6 +5,8 @@ html, body { height: 100%; background-color: #E1E5F6;  }
 /* Hide frames around links on top menu */
 #head-nav a, #type a, .brand { outline: none; }
 
+#logo { float: left; margin: 2px }
+
 #map-wrapper {
   padding: 0; height: 100%;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);

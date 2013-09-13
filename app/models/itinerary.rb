@@ -15,12 +15,10 @@ class Itinerary < ActiveRecord::Base
   validate :pedestrian_point, :even_route_points,
     :more_than_one_point, :only_float
 
-  # ABSTRACT CODE
-  # # Any geo-point contain two coordinates
-  # validate route.length, can't be odd
-  # validate route.each.type == float
-
-  GeoPoint = 2 # One geopoint has 2 coordinates
+  # One geopoint have 2 coordinates
+  # So the final array can't be odd
+  # i.e. [x1, y1, x2, y2] or smthng
+  GeoPoint = 2
 
   def pedestrian_point
     errors.add(:route, 'pedestrians can have only one geopoint') if
