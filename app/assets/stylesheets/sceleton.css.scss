@@ -1,5 +1,7 @@
 // This stylesheet is for whole document. Use it wisely.
 
+@import 'bootstrap';
+
 html, body { height: 100%; background-color: #E1E5F6;  }
 
 /* Hide frames around links on top menu */
@@ -20,7 +22,7 @@ html, body { height: 100%; background-color: #E1E5F6;  }
     border-radius: 4px 4px 4px 4px;
 }
 
-#searchbox { 
+#searchbox {
     position: absolute;
     left: 50px;
     height: 30px;
@@ -43,8 +45,8 @@ html, body { height: 100%; background-color: #E1E5F6;  }
   position: absolute;
   top: 60px;
   bottom: 20px;
-  width: 96%;
-  margin-left: -48%;
+  width: 960px;
+  margin-left: -480px;
   left: 50%;
 }
 

@@ -6,9 +6,9 @@
   %title= "CityStop | #{content_for(:title)}"
   = favicon_link_tag 'favicon.ico'
 
-  = stylesheet_link_tag    "application-all", :media => "all"
+  = stylesheet_link_tag    "application", controller_name, :media => "all"
   /[if lte IE 9]
-   = stylesheet_link_tag    "application-ie", :media => "all"
+   = stylesheet_link_tag    "application-ie", controller_name, :media => "all"
 
   = javascript_include_tag "application"
   = csrf_meta_tags
@@ -17,8 +17,8 @@
 
   .navbar.navbar-fixed-top
    .navbar-inner
-    .container-fluid
-     =image_tag 'logo.png', size: '35x35', id: 'logo'
+    .container
+     =link_to image_tag 'logo.png', size: '35x35', id: 'logo', alt: 'CityStop'
      =link_to "CityStop", root_path, class: 'brand'
 
      -if user_signed_in?
@@ -35,7 +35,7 @@
       -else
        =link_to "Войти", new_user_session_path
 
-  .container-fluid
+  .container
    #wrapper.row-fluid
     #map-wrapper.well.span7
      #searchbox

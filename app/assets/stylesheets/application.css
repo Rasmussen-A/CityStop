@@ -13,5 +13,5 @@
  *
  *= require_self
  *= require vendor-all
- *= require_tree ./all
+ *= require sceleton
  */
