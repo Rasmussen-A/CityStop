@@ -2,7 +2,7 @@
 
 @import 'bootstrap';
 
-html, body { height: 100%; background-color: #E1E5F6;  }
+html, body { height: 100%; }
 
 /* Hide frames around links on top menu */
 #head-nav a, #type a, .brand { outline: none; }
@@ -11,7 +11,6 @@ html, body { height: 100%; background-color: #E1E5F6;  }
 
 #map-wrapper {
   padding: 0; height: 100%;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
 #map {
@@ -30,8 +29,7 @@ html, body { height: 100%; background-color: #E1E5F6;  }
     z-index: 1;
 }
 
-#searchbox input, #searchbox button { 
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+#searchbox input, #searchbox button {
     border-radius: 0;
 }
 #searchbox input { width: 250px; }
@@ -52,7 +50,6 @@ html, body { height: 100%; background-color: #E1E5F6;  }
 
 #filters {
   height: 100%; padding: 0;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Selector and trackbar rules */

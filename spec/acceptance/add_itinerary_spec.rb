@@ -12,6 +12,7 @@ feature 'Add itineraries', %q{
   scenario 'Add basic itinerary' do
     visit(new_itinerary_path)
     # Filling in itinerary data and saving it
+    page.should have_css('li.active', text: I18n.t(:my_itineraries))
     fill_in I18n.t(:itinerary_name_field),
       with: I18n.t(:factory_itinerary_name)
     fill_in I18n.t(:itinerary_time_field),

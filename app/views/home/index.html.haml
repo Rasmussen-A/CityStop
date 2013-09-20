@@ -1,10 +1,7 @@
 -# Home#index
-=title('Главная')
+=title 'Главная'
+-#=stylesheet 'home'
 
 -content_for :content do
- %h1 Где это я?
- =link_to( "Зарегестрироваться!", new_user_registration_path )
-
--content_for :bar do
- %p
-  Сайдбар!
+ %h2 Где это я?
+ %p= link_to "Зарегестрироваться", new_user_registration_path

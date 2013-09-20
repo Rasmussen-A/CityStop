@@ -6,9 +6,10 @@
   %title= "CityStop | #{content_for(:title)}"
   = favicon_link_tag 'favicon.ico'
 
-  = stylesheet_link_tag    "application", controller_name, :media => "all"
+  = stylesheet_link_tag    "application", :media => "all"
+  = stylesheet_link_tag controller_name if asset_exist?(controller_name)
   /[if lte IE 9]
-   = stylesheet_link_tag    "application-ie", controller_name, :media => "all"
+   = stylesheet_link_tag    "application-ie", :media => "all"
 
   = javascript_include_tag "application"
   = csrf_meta_tags
@@ -23,10 +24,10 @@
 
      -if user_signed_in?
       %ul#head-nav.nav
-       %li
-        =link_to 'Карта'
-       %li
-        =link_to 'Мои маршруты', itineraries_path
+       %li{ class: is_active('home') }
+        =link_to "Общая карта", root_path
+       %li{ class: is_active('itineraries') }
+        =link_to "Мои маршруты", user_root_path
 
      %p.navbar-text.pull-right
       -if user_signed_in?
@@ -37,13 +38,17 @@
 
   .container
    #wrapper.row-fluid
-    #map-wrapper.well.span7
-     #searchbox
-     #map
-      =yield :content
+    -if (controller_name == 'itineraries')
+     #map-wrapper.well.span7
+      #searchbox
+      #map
+       =yield :content
 
-    #filters.well.span5
-     -if notice || alert
-      %p.notice= notice
-      %p.alert= alert
-     =yield :bar
+     #filters.well.span5
+      -if notice || alert
+       %p.notice= notice
+       %p.alert= alert
+      =yield :bar
+    -else
+     #map-wrapper.well.span12
+      =yield :content

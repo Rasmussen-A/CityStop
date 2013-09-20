@@ -17,6 +17,7 @@ feature 'Select itinerary', %q{
     click_link @bob_way.name
     # Form fields shall be filled
     # by selected itinerary data
+    page.should have_css('li.active', text: I18n.t(:my_itineraries))
     find_field('itinerary[name]').value.should eq @bob_way.name
     find_field('itinerary[description]'
       ).value.should eq @bob_way.description
@@ -37,6 +38,7 @@ feature 'Edit itinerary', %q{
   end
 
   scenario 'Edit event' do
+    page.should have_css('li.active', text: I18n.t(:my_itineraries))
     fill_in I18n.t(:itinerary_name_field), with: 'Just edited'
     click_button I18n.t(:update)
     page.should have_selector('a', text: 'Just edited')
