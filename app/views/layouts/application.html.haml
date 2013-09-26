@@ -16,7 +16,7 @@
 
  %body
 
-  .navbar.navbar-fixed-top
+  .navbar.navbar-fixed-top.navbar-inverse
    .navbar-inner
     .container
      =link_to image_tag 'logo.png', size: '35x35', id: 'logo', alt: 'CityStop'
@@ -42,13 +42,12 @@
      #map-wrapper.well.span7
       #searchbox
       #map
+       =place_notification if params[:controller] != 'itineraries'
        =yield :content
 
      #filters.well.span5
-      -if notice || alert
-       %p.notice= notice
-       %p.alert= alert
       =yield :bar
     -else
      #map-wrapper.well.span12
+      =place_notification if params[:controller] == 'itineraries'
       =yield :content
