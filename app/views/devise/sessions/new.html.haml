@@ -3,22 +3,25 @@
 
 - content_for :content do
 
-  %h2 Вход
+  %p.notice= notice
+  %p.alert= alert
 
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    = devise_error_messages!
-    %div
-      = f.label :email, 'Email'
-      %br/
-      = f.text_field :email, :autofocus => true
-    %div
-      = f.label :password, I18n.t(:pass_field)
-      %br/
-      = f.password_field :password
-    - if devise_mapping.rememberable?
-      %div
-        = f.check_box :remember_me
-        = f.label 'Запомнить меня на этом компьютере'
-    %div= f.submit I18n.t(:sign_in_action)
+  .panel.col-sm-7
+    .panel-heading
+      %h2 Вход
 
-  = render "devise/shared/links"
+    .panel-body
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .form-group
+          = f.label :email, 'Email'
+          = f.text_field :email, :autofocus => true, type: 'email', class: 'form-control'
+        .form-group
+          = f.label :password, I18n.t(:pass_field)
+          = f.password_field :password, class: 'form-control'
+        - if devise_mapping.rememberable?
+          .checkbox
+            = f.check_box :remember_me
+            = f.label 'Запомнить меня на этом компьютере'
+        %div= f.submit I18n.t(:sign_in_action), class: 'btn btn-primary'
+
+      = render "devise/shared/links"

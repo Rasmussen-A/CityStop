@@ -16,38 +16,35 @@
 
  %body
 
-  .navbar.navbar-fixed-top.navbar-inverse
-   .navbar-inner
-    .container
-     =link_to image_tag 'logo.png', size: '35x35', id: 'logo', alt: 'CityStop'
-     =link_to "CityStop", root_path, class: 'brand'
+  %nav.navbar.navbar-default.navbar-fixed-top{ role: 'navigation' }
+   .container
+    =link_to image_tag 'logo.png', size: '45x45', class: 'navbar-brand', id: 'logo'
+    =link_to "CityStop", root_path, class: 'navbar-brand'
 
+    -if user_signed_in?
+     %ul#head-nav.nav.navbar-nav
+      %li{ class: is_active('home') }
+       =link_to "Общая карта", root_path
+      %li{ class: is_active('itineraries') }
+       =link_to "Мои маршруты", user_root_path
+
+    %p.navbar-text.pull-right
      -if user_signed_in?
-      %ul#head-nav.nav
-       %li{ class: is_active('home') }
-        =link_to "Общая карта", root_path
-       %li{ class: is_active('itineraries') }
-        =link_to "Мои маршруты", user_root_path
-
-     %p.navbar-text.pull-right
-      -if user_signed_in?
-       =current_user.name + ' / '
-       =link_to "Выйти", destroy_user_session_path, method: :delete
-      -else
-       =link_to "Войти", new_user_session_path
+      =current_user.name + ' / '
+      =link_to "Выйти", destroy_user_session_path, method: :delete
+     -else
+      =link_to "Войти", new_user_session_path
 
   .container
    #wrapper.row-fluid
     -if (controller_name == 'itineraries')
-     #map-wrapper.well.span7
+     #map-wrapper.well.col-sm-7
       #searchbox
       #map
-       =place_notification if params[:controller] != 'itineraries'
        =yield :content
 
-     #filters.well.span5
+     #filters.well.col-sm-5
       =yield :bar
     -else
-     #map-wrapper.well.span12
-      =place_notification if params[:controller] == 'itineraries'
+     #map-wrapper.well.col-sm-12
       =yield :content
