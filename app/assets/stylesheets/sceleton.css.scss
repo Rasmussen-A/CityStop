@@ -47,6 +47,16 @@ html, body { height: 100%; }
   left: 50%;
 }
 
+#flash-message { visible: none; margin-top: 5px; }
+
+.field_with_errors {
+  input { border-color: red; }
+}
+
+#user-form {
+    h2, .devise-ctrl { text-align: center }
+}
+
 .container { max-width: 960px !important }
 
 .nav-pills li a, .well, .navbar { border-radius: 0 !important; }

@@ -7,7 +7,6 @@
   = favicon_link_tag 'favicon.ico'
 
   = stylesheet_link_tag    "application", :media => "all"
-  = stylesheet_link_tag controller_name if asset_exist?(controller_name)
   /[if lte IE 9]
    = stylesheet_link_tag    "application-ie", :media => "all"
 
@@ -41,10 +40,18 @@
      #map-wrapper.well.col-sm-7
       #searchbox
       #map
-       =yield :content
+       %p Here will be a <s>city</s> map!
 
      #filters.well.col-sm-5
-      =yield :bar
+      #flash-message
+       - flash.each do |name, msg|
+        = content_tag :div, msg, id: "flash_#{name}", class: 'alert alert-block alert-danger'
+
+      =yield :content
+
     -else
      #map-wrapper.well.col-sm-12
+      #flash-message.col-sm-6.col-sm-offset-3
+       - flash.each do |name, msg|
+        = content_tag :div, msg, id: "flash_#{name}", class: 'alert alert-block alert-danger'
       =yield :content
