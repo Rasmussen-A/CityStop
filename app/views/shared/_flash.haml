@@ -1,0 +1,6 @@
+- if notice || alert
+ #flash-message.alert.alert-block.alert-danger.fade.in
+  %button.close{ type: 'button', :'data-dismiss' => 'alert', :'area-hidden' => 'true' }
+   &times;
+  - flash.each do |name, msg|
+   = content_tag :div, msg, id: "flash_#{name}"

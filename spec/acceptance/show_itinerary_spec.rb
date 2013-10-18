@@ -13,7 +13,7 @@ feature 'Show itinerary', %q{
   end
 
   scenario 'Show itinerary' do
-    click_link I18n.t :details
+    click_link @bob_way.name
     # I suppose that lately itinerary details
     # will render as partial or whathever
     current_path.should == itinerary_path(@bob_way)

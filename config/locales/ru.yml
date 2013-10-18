@@ -20,7 +20,9 @@ ru:
   my_itineraries: Мои маршруты
   update: Обновить
   details: Подробнее
-  create: Создать маршрут
+  create: Добавить маршрут или место
+  yep: Да
+  nope: Нет
 
 # Page sources
   sign_in_title: Вход

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require flash_message
+//= require itineraries
 //= require vendor

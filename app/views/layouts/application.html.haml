@@ -17,7 +17,8 @@
 
   %nav.navbar.navbar-default.navbar-fixed-top{ role: 'navigation' }
    .container
-    =link_to image_tag 'logo.png', size: '45x45', class: 'navbar-brand', id: 'logo'
+    =link_to root_path do
+     =image_tag 'logo.png', size: '45x45', class: 'navbar-brand', id: 'logo'
     =link_to "CityStop", root_path, class: 'navbar-brand'
 
     -if user_signed_in?
@@ -29,6 +30,7 @@
 
     %p.navbar-text.pull-right
      -if user_signed_in?
+      %span.glyphicon.glyphicon-user
       =current_user.name + ' / '
       =link_to "Выйти", destroy_user_session_path, method: :delete
      -else
@@ -43,15 +45,10 @@
        %p Here will be a <s>city</s> map!
 
      #filters.well.col-sm-5
-      #flash-message
-       - flash.each do |name, msg|
-        = content_tag :div, msg, id: "flash_#{name}", class: 'alert alert-block alert-danger'
-
-      =yield :content
+      = render 'shared/flash'
+      = yield :content
 
     -else
      #map-wrapper.well.col-sm-12
-      #flash-message.col-sm-6.col-sm-offset-3
-       - flash.each do |name, msg|
-        = content_tag :div, msg, id: "flash_#{name}", class: 'alert alert-block alert-danger'
-      =yield :content
+      .col-sm-6.col-sm-offset-3= render 'shared/flash'
+      = yield :content

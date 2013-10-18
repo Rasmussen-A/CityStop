@@ -9,6 +9,8 @@ feature 'Delete itinerary', %q{
     # Selenium driver gives js executing ability
     Capybara.current_driver = :selenium
     @bob = FactoryGirl.create(:user)
+    @bob_holiday_trip = FactoryGirl.create(:itinerary, user: @bob,
+      name: 'Holiday LA trip')
     @bob_way = FactoryGirl.create(:itinerary, user: @bob,
       name: 'Zombie itinerary')
     login_user(@bob)
@@ -21,15 +23,18 @@ feature 'Delete itinerary', %q{
 
   scenario 'Remove itinerary' do
     page.should have_content('Zombie itinerary')
-    page.source.should have_selector(
-       "form[action='/itineraries/#{@bob_way.id}'] input[value='delete']")
-    # form.should have_selector("input[value='delete']")
-    # Autoconfirm dialog
-    # That is why I use selenium driver
-    click_button 'X'
-      page.driver.browser.switch_to.alert.accept
+    page.should have_content('Holiday LA trip')
+#    # Std driver cannot deal with js code
+#    # That is why I used selenium driver
+    page.find("a[data-id='#{@bob_way.id}']").click
+      click_link(I18n.t :yep)
     current_path.should == itineraries_path
     page.should_not have_content('Zombie itinerary')
+    page.should have_content('Holiday LA trip')
+
+    page.find("a[data-id='#{@bob_holiday_trip.id}']").click
+      click_link(I18n.t :yep)
+    page.should_not have_content('Holiday LA trip')
   end
 
 end

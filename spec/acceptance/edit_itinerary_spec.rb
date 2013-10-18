@@ -14,7 +14,7 @@ feature 'Select itinerary', %q{
   scenario 'Select itinerary' do
     visit itineraries_path
     page.should have_selector('a', text: @bob_way.name)
-    click_link @bob_way.name
+    find("a[href='#{edit_itinerary_path(@bob_way)}']").click
     # Form fields shall be filled
     # by selected itinerary data
     page.should have_css('li.active', text: I18n.t(:my_itineraries))
@@ -34,7 +34,7 @@ feature 'Edit itinerary', %q{
     @bob = FactoryGirl.create(:user)
     @bob_way = FactoryGirl.create(:itinerary, user: @bob)
     login_user @bob
-    click_link @bob_way.name
+    find("a[href='#{edit_itinerary_path(@bob_way)}']").click
   end
 
   scenario 'Edit event' do
