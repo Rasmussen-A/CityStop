@@ -13,6 +13,9 @@ feature 'Delete itinerary', %q{
       name: 'Holiday LA trip')
     @bob_way = FactoryGirl.create(:itinerary, user: @bob,
       name: 'Zombie itinerary')
+    @jack = FactoryGirl.create(:user, name: 'Jack', email: 'jack@bk.com')
+    @jack_point = FactoryGirl.create(:itinerary, user: @jack,
+       name: 'To Rio')
     login_user(@bob)
   end
 
@@ -21,11 +24,13 @@ feature 'Delete itinerary', %q{
     Capybara.use_default_driver
   end
 
-  scenario 'Remove itinerary' do
+  scenario "Remove Bob's itinerary" do
     page.should have_content('Zombie itinerary')
     page.should have_content('Holiday LA trip')
-#    # Std driver cannot deal with js code
-#    # That is why I used selenium driver
+    page.should_not have_content('To Rio')
+    page.should_not have_css("a[href='#{itinerary_path(@jack_point)}']")
+    # Std driver cannot deal with js code
+    # That is why I used selenium driver
     page.find("a[data-id='#{@bob_way.id}']").click
       click_link(I18n.t :yep)
     current_path.should == itineraries_path

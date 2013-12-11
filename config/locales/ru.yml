@@ -35,3 +35,13 @@ ru:
     submit:
       create: Сохранить
       update: Обновить
+  activerecord:
+    models:
+     user: Пользователь
+    errors:
+      messages:
+        confirmation: Подтверждение пароля
+    attributes:
+     user:
+      password: Пароль
+      name: Логин

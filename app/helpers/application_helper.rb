@@ -4,8 +4,8 @@ module ApplicationHelper
     content_for(:title){ page_title }
   end
 
-  def asset_exist?(asset)
-    Rails.application.assets.find_asset(asset)
+  def javascript(*files)
+    content_for(:head){ javascript_include_tag(*files) }
   end
 
   def is_active(link_controller)

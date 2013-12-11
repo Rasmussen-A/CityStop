@@ -1,16 +1,17 @@
 !!! 5
-%html{:lang => "ru"}
+%html{:lang => 'ru'}
  %head
 
   %meta{:'http-equiv' => "Content-Type", :content => "text/html", :charset => "utf-8"}
   %title= "CityStop | #{content_for(:title)}"
   = favicon_link_tag 'favicon.ico'
 
-  = stylesheet_link_tag    "application", :media => "all"
+  = stylesheet_link_tag    'application', :media => 'all'
   /[if lte IE 9]
-   = stylesheet_link_tag    "application-ie", :media => "all"
+   = stylesheet_link_tag    'application-ie', :media => 'all'
 
-  = javascript_include_tag "application"
+  = javascript_include_tag 'application'
+  = yield :head
   = csrf_meta_tags
 
  %body
@@ -19,26 +20,26 @@
    .container
     =link_to root_path do
      =image_tag 'logo.png', size: '45x45', class: 'navbar-brand', id: 'logo'
-    =link_to "CityStop", root_path, class: 'navbar-brand'
+    =link_to 'CityStop', root_path, class: 'navbar-brand'
 
     -if user_signed_in?
      %ul#head-nav.nav.navbar-nav
       %li{ class: is_active('home') }
-       =link_to "Общая карта", root_path
+       =link_to 'Общая карта', root_path
       %li{ class: is_active('itineraries') }
-       =link_to "Мои маршруты", user_root_path
+       =link_to 'Мои маршруты', user_root_path
 
     %p.navbar-text.pull-right
      -if user_signed_in?
       %span.glyphicon.glyphicon-user
       =current_user.name + ' / '
-      =link_to "Выйти", destroy_user_session_path, method: :delete
+      =link_to 'Выйти', destroy_user_session_path, method: :delete
      -else
-      =link_to "Войти", new_user_session_path
+      =link_to 'Войти', new_user_session_path
 
   .container
    #wrapper.row-fluid
-    -if (controller_name == 'itineraries')
+    -if controller_name == 'itineraries'
      #map-wrapper.well.col-sm-7
       #searchbox
       #map

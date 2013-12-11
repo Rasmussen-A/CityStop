@@ -15,7 +15,6 @@ html, body { height: 100%; }
 #map {
     height: 100%;
     position: relative;
-    height: 100%;
     z-index: 0;
     border-radius: 4px 4px 4px 4px;
 }
@@ -37,19 +36,18 @@ html, body { height: 100%; }
 
 #new-one {
   padding: 0px;
-  background-color: white;
   #add {
     text-align: center;
-    font-size: 18px;
-    color: rgb(119, 119, 119);
+    font-size: 14px;
+    color: rgb(51, 51, 51);
     float: left;
     width: 100%;
     height: 100%;
     padding: 7px;
-    span { font-size: 15px; padding-right: 3px; }
+    span { font-size: 13px; }
   }
   &:hover {
-    background-color: rgb(66, 139, 202);
+    background-color: rgb(40, 94, 135);
     #add { color: white }
   }
 }
@@ -58,8 +56,9 @@ html, body { height: 100%; }
 
 .del_form {
   text-align: right;
-  span { color: black; padding-right: 7px; opacity: 0.2; }
-  span:hover, span:focus { color: black; opacity: 0.5; cursor: pointer }
+  span, .delete-action { color: black; opacity: 0.4; }
+  span { padding-right: 7px; }
+  span:hover, span:focus, .delete-action:hover { color: black; opacity: 0.9; cursor: pointer }
   .delete-action { font-size: 24px; margin: -4px; outline: none }
 }
 
@@ -140,7 +139,6 @@ input, a, #flash-message, .alert, button, .modal-content { border-radius: 0px !i
 
 #list {
   position: absolute;
-  width: inherit;
   /* Navbar + Slider + 2 borders = 40+40+2 (px) */
   top: 82px;
   bottom: 0px;

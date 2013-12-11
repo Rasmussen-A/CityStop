@@ -15,9 +15,9 @@ feature 'Show itinerary', %q{
   scenario 'Show itinerary' do
     click_link @bob_way.name
     # I suppose that lately itinerary details
-    # will render as partial or whathever
+    # will render as partial or whatever
     current_path.should == itinerary_path(@bob_way)
-    page.should have_content(@bob_way.time)
+    page.should have_content(@bob_way.occur_at)
     page.should have_content(@bob_way.name)
     page.should have_content(@bob_way.description)
   end

@@ -2,10 +2,12 @@ class ItinerariesController < ApplicationController
   # User shall be signed in
   # to access any of itineraries actions
   before_filter :authenticate_user!
+  respond_to :html, :json
 
   def index
     # Load all user itineraries on index action
     @itineraries = current_user.itineraries
+    respond_with(@itineraries)
   end
 
   def create

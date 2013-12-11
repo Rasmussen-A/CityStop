@@ -24,6 +24,6 @@
         .form-group
           = f.label :password_confirmation, 'Повторите пароль'
           = f.password_field :password_confirmation, class: 'form-control'
-        .devise-ctrl= f.submit "Зарегестрироваться", class: 'btn btn-primary'
+        .devise-ctrl= f.submit 'Зарегестрироваться', class: 'btn btn-primary'
 
-      .devise-ctrl= render "devise/shared/links"
+      .devise-ctrl= render 'devise/shared/links'

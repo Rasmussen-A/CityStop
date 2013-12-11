@@ -6,13 +6,14 @@ feature 'Add itineraries', %q{
   my own itineraries} do
 
   background do
-    login_user FactoryGirl.create(:user)
+    @mike = FactoryGirl.create(:user)
+    @trip = FactoryGirl.create(:itinerary, user: @mike)
   end
 
   scenario 'Add basic itinerary' do
+    login_user(@mike)
     visit(new_itinerary_path)
     # Filling in itinerary data and saving it
-    page.should have_css('li.active', text: I18n.t(:my_itineraries))
     fill_in I18n.t(:itinerary_name_field),
       with: I18n.t(:factory_itinerary_name)
     fill_in I18n.t(:itinerary_time_field),

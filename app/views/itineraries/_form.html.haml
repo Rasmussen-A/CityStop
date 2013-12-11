@@ -1,10 +1,13 @@
 -# _form
 
 = form_for @itinerary || Itinerary.new do |f|
- = f.label :name, I18n.t(:itinerary_name_field)
- = f.text_field :name
- = f.label :time, I18n.t(:itinerary_time_field)
- = f.text_field :time
- = f.label :description, I18n.t(:itinerary_description_field)
- = f.text_field :description
- = f.submit
+  .form-group
+    = f.label :name, I18n.t(:itinerary_name_field)
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :occur_at, I18n.t(:itinerary_time_field)
+    = f.text_field :occur_at, class: 'form-control'
+  .form-group
+    = f.label :description, I18n.t(:itinerary_description_field)
+    = f.text_field :description, class: 'form-control'
+  = f.submit class: 'btn btn-primary'

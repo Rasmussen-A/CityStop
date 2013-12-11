@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.0'
 
 gem 'pg'
 gem 'protected_attributes'
@@ -10,7 +10,7 @@ gem 'bcrypt-ruby', '~> 3.1.1'
 gem 'devise-i18n'
 gem 'rails-i18n'
 
-gem 'backbone-rails', '~> 1.0.0'
+gem 'backbone-on-rails', '~> 1.1.0.0'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'jquery-ui-rails', '~> 4.0.3'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'

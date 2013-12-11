@@ -7,12 +7,12 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
     click_sign_in
   end
 
-  scenario "Clicking Sign In" do
+  scenario 'Clicking Sign In' do
     page.should have_title("CityStop | #{I18n.t :sign_in_title}")
     page.source.should have_selector('form')
   end
 
-  scenario "Successful Sign In" do
+  scenario 'Successful Sign In' do
     # Signing in existing user
     FactoryGirl.create(:user)
     # This action is defined in support/request_helpers.rb
@@ -20,7 +20,7 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
     current_path.should == user_root_path
   end
 
-  scenario "Unsuccessful Sign In" do
+  scenario 'Unsuccessful Sign In' do
     # Trying to sign in a God, I mean non-existing user, lol
     # Should drop to login page
     fill_in 'Email', with: 'pwned@an.on'
