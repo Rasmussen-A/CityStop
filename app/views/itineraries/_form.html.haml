@@ -1,12 +1,15 @@
 -# _form
 
-= form_for @itinerary || Itinerary.new do |f|
+= form_for @itinerary || Itinerary.new, html: { role: 'form' } do |f|
   .form-group
     = f.label :name, I18n.t(:itinerary_name_field)
     = f.text_field :name, class: 'form-control'
   .form-group
     = f.label :occur_at, I18n.t(:itinerary_time_field)
-    = f.text_field :occur_at, class: 'form-control'
+    = f.datetime_select :occur_at, class: 'form-control'
+  .form-group
+    = f.label :count, I18n.t(:place_count)
+    = f.number_field :count, class: 'form-control'
   .form-group
     = f.label :description, I18n.t(:itinerary_description_field)
     = f.text_field :description, class: 'form-control'

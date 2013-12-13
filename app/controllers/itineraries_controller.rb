@@ -11,8 +11,6 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    # Build new empty itinerary (params from model, I quess)
-    # Then fill it with user data and saving
     itinerary = current_user.itineraries.build(params[:itinerary])
     itinerary.save
     redirect_to itineraries_path

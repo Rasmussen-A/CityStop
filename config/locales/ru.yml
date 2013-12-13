@@ -13,9 +13,10 @@ ru:
   sign_up_action: Зарегестрироваться
 
 # Itineraries fields
-  itinerary_name_field: Маршрут
+  itinerary_name_field: Название маршрута
   itinerary_time_field: Время
   itinerary_description_field: Описание
+  place_count: Свободные места
   save: Сохранить
   my_itineraries: Мои маршруты
   update: Обновить
