@@ -10,6 +10,11 @@ class ItinerariesController < ApplicationController
     respond_with(@itineraries)
   end
 
+  def public
+    @itineraries = Itinerary.all
+    respond_with(@itineraries)
+  end
+
   def create
     itinerary = current_user.itineraries.build(params[:itinerary])
     itinerary.save
@@ -37,7 +42,8 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = Itinerary.find(params[:id])
+    respond_with(@itinerary)
   end
 
 end

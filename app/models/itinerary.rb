@@ -7,7 +7,7 @@ class Itinerary < ActiveRecord::Base
   has_many :relations
   has_many :subscriptions, through: :relations, dependent: :destroy
 
-  attr_accessible :description, :name, :occur_at, :count
+  attr_accessible :description, :name, :occur_at, :count, :kind, :location
 
   validates :name, :occur_at, presence: true
   # Itinerary must have only one type from the array below

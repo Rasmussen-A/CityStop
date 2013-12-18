@@ -24,9 +24,9 @@
 
     -if user_signed_in?
      %ul#head-nav.nav.navbar-nav
-      %li{ class: is_active('home') }
-       =link_to 'Общая карта', root_path
-      %li{ class: is_active('itineraries') }
+      %li
+       =link_to 'Общая карта', itineraries_public_path
+      %li
        =link_to 'Мои маршруты', user_root_path
 
     %p.navbar-text.pull-right

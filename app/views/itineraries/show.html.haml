@@ -5,4 +5,8 @@
 - content_for :content do
  %h2= @itinerary.name
  %p= @itinerary.occur_at
+ %p= @itinerary.count
  %p= @itinerary.description
+
+ - @itinerary.subscriptions.each do |subscription|
+  %p= subscription.user.name

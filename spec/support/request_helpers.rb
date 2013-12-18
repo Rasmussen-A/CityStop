@@ -9,8 +9,8 @@ module RequestHelpers
 
     def login_user(user)
       visit new_user_session_path
-      fill_in 'Email', with: 'bob@hula.hoop'
-      fill_in I18n.t(:pass_field), with: 'p@ssword'
+      fill_in 'Email', with: user.email
+      fill_in I18n.t(:pass_field), with: user.password
       click_button I18n.t(:sign_in_action)
     end
 

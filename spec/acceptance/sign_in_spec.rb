@@ -14,14 +14,13 @@ feature 'Sign in', %q{ As an admin I want to sign in } do
 
   scenario 'Successful Sign In' do
     # Signing in existing user
-    FactoryGirl.create(:user)
+    bob = FactoryGirl.create(:user)
     # This action is defined in support/request_helpers.rb
-    login_user(:user)
+    login_user(bob)
     current_path.should == user_root_path
   end
 
   scenario 'Unsuccessful Sign In' do
-    # Trying to sign in a God, I mean non-existing user, lol
     # Should drop to login page
     fill_in 'Email', with: 'pwned@an.on'
     fill_in I18n.t(:pass_field), with: '@ll$'

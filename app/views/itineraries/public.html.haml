@@ -1,0 +1,19 @@
+-# itineraries#public
+
+- title 'Все маршруты'
+
+- content_for :content do
+ 
+ %table.table.table-hover
+  %tbody
+   - for itinerary in @itineraries do
+    %tr
+     %td
+      -# Hours before start
+      %span.glyphicon.glyphicon-time
+      14 ч.
+     %td
+      -# Soon this will be replace by icon
+      = itinerary.kind
+     %td.itinerary_name
+      = link_to itinerary.name, itinerary_path(itinerary)

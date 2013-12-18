@@ -36,6 +36,8 @@ feature 'Signed in user', %q{
     page.should have_content(@bob.name)
     page.should have_content(@bob_way.name)
     page.should have_content(I18n.t(:sign_out_title))
+    visit itineraries_public_path
+    page.should have_content(@bob_way.name)
   end
 
 end # feature Signed in user

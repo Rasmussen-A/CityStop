@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :subscription do
-    description "MyString"
+    description "Join at square"
     occure_at "2013-12-11 21:08:28"
-    kind "MyString"
-    location "MyString"
+    kind "pedestrian"
+    location [50.1442, 38.3452]
   end
 end
