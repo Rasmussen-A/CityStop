@@ -6,6 +6,6 @@ class Subscription < ActiveRecord::Base
   has_one :relation
   has_one :itinerary, through: :relation
 
-  attr_accessible :description, :name, :occur_at, :count
+  attr_accessible :description, :occur_at, :kind, :location, :active
 
 end

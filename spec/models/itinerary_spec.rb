@@ -1,43 +1,42 @@
 require 'spec_helper'
 
-#describe Itinerary do
-#
-#  before(:each) do
-#    @route = FactoryGirl.create(:itinerary)
-#  end
-#
-#    describe 'initerary info' do
-#
-#      it 'should belong to user' do
-#        @route.user = nil
-#          @route.valid?.should be_false
-#        @route.errors[:user].should include(
-#          I18n.t 'errors.messages.blank')
-#        @route.user = User.new
-#          @route.valid?.should be_true
-#      end
-#
-#      it 'should require a name' do
-#        @route.name = nil
-#          @route.valid?.should be_false
-#        @route.errors[:name].should include(
-#          I18n.t 'errors.messages.blank')
-#        @route.name = I18n.t :other_description
-#          @route.valid?.should be_true
-#      end
-#
-#      it 'should have a time of occurence' do
-#        @route.time = nil
-#          @route.valid?.should be_false
-#        dt = Time.now
-#        @route.time = dt
-#          @route.valid?.should be_true
-#          @route.time.should == dt
-#          #@route.time.to_s.should == dt.to_s
-#      end
-#
-#    end # describe itinerary info
-#
+describe Itinerary do
+
+  before(:each) do
+    @route = FactoryGirl.create(:itinerary)
+  end
+
+    describe 'itinerary info' do
+
+      it 'should belong to user' do
+        @route.user = nil
+          @route.valid?.should be_false
+        @route.errors[:user].should include(
+          I18n.t 'errors.messages.blank')
+        @route.user = User.new
+          @route.valid?.should be_true
+      end
+
+      it 'should require a name' do
+        @route.name = nil
+          @route.valid?.should be_false
+        @route.errors[:name].should include(
+          I18n.t 'errors.messages.blank')
+        @route.name = I18n.t :other_description
+          @route.valid?.should be_true
+      end
+
+      it 'should have a time of occurrence' do
+        @route.occur_at = nil
+          @route.valid?.should be_false
+        dt = Time.now
+        @route.occur_at = dt
+          @route.valid?.should be_true
+          @route.occur_at.should == dt
+      end
+
+    end # describe itinerary info
+
 #    describe 'itinerary geo' do
 #
 #      it 'should have a coordinates or path' do
@@ -96,5 +95,5 @@ require 'spec_helper'
 #      end
 #
 #    end # describe itinerary geo
-#
-#end # describe Itinerary
+
+end # describe Itinerary

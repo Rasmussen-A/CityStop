@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Relation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #TODO - check unequal between itinerary.user_id and subscription.user_id
 end
